@@ -15,7 +15,7 @@ run_command('bash', './generate_meson_files.sh', 'src', 'src', check: true)
 src = []
 subdir('src')
 
-lib = library(
+lib = shared_library(
     'logging_lib',
     sources: src,
     include_directories: incdirs,
