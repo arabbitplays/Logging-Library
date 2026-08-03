@@ -1,5 +1,4 @@
 #include <logging/logger/ClassLogger.hpp>
-
 #include <logging/util/SourcePathUtil.hpp>
 
 namespace Logging
@@ -15,4 +14,4 @@ namespace Logging
         publish(message);
     }
 
-} // Logging
+} // namespace Logging

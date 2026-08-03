@@ -1,6 +1,7 @@
 #ifndef DESKTOP_MANAGER_CONSOLETARGET_HPP
 #define DESKTOP_MANAGER_CONSOLETARGET_HPP
 #include "Target.hpp"
+
 #include <logging/util/ColorUtil.hpp>
 
 namespace Logging
@@ -16,6 +17,6 @@ namespace Logging
         std::string colorize(const std::string& data, Severity severity);
         static Color getColorForSeverity(Severity severity);
     };
-} // Logging
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_CONSOLETARGET_HPP
+#endif // DESKTOP_MANAGER_CONSOLETARGET_HPP

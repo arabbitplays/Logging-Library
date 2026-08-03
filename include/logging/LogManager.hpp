@@ -17,8 +17,7 @@ namespace Logging
             LogManager::config = config;
         }
 
-        template <typename T>
-        static LoggerHandle getClassLogger()
+        template <typename T> static LoggerHandle getClassLogger()
         {
             if (LogManager::config == nullptr)
             {
@@ -30,6 +29,6 @@ namespace Logging
     private:
         inline static LogConfigurationHandle config = nullptr;
     };
-}
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_LOGMANAGER_HPP
+#endif // DESKTOP_MANAGER_LOGMANAGER_HPP

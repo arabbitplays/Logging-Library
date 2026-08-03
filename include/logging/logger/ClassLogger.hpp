@@ -15,6 +15,6 @@ namespace Logging
     private:
         SourcePath classpath;
     };
-} // Logging
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_CLASSLOGGER_HPP
+#endif // DESKTOP_MANAGER_CLASSLOGGER_HPP

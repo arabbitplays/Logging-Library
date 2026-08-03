@@ -1,6 +1,7 @@
 #ifndef DESKTOP_MANAGER_RULEEVALUATOR_HPP
 #define DESKTOP_MANAGER_RULEEVALUATOR_HPP
 #include "FilterRule.hpp"
+
 #include <logging/messages/LogMessage.hpp>
 
 namespace Logging
@@ -16,6 +17,6 @@ namespace Logging
     private:
         static bool containsPath(const SourcePath& path_pattern, const SourcePath& path);
     };
-} // Logging
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_RULEEVALUATOR_HPP
+#endif // DESKTOP_MANAGER_RULEEVALUATOR_HPP

@@ -2,8 +2,8 @@
 #define DESKTOP_MANAGER_SOURCEPATHUTIL_HPP
 
 #include <cassert>
-#include <logging/messages/SourcePath.hpp>
 #include <cstdint>
+#include <logging/messages/SourcePath.hpp>
 
 namespace Logging
 {
@@ -13,9 +13,8 @@ namespace Logging
         static SourcePath parseFromClassId(const std::string& class_id)
         {
             std::vector<std::string> segments{};
-            std::string trimmed_id = (std::isdigit(class_id[0]) != 0)
-                ? class_id
-                : class_id.substr(1, class_id.length() - 2);
+            std::string trimmed_id =
+                (std::isdigit(class_id[0]) != 0) ? class_id : class_id.substr(1, class_id.length() - 2);
 
             uint32_t curr_char_idx = 0;
             while (curr_char_idx < trimmed_id.length())
@@ -55,8 +54,8 @@ namespace Logging
 
             bool wildcard = false;
             if (path_pattern.empty() // empty pattern is wildcard
-                || (path_pattern[path_pattern.length() - 1] == wildcard_char
-                    && (path_pattern.length() == 1 || path_pattern[path_pattern.length() - 2] == separator_char)))
+                || (path_pattern[path_pattern.length() - 1] == wildcard_char &&
+                       (path_pattern.length() == 1 || path_pattern[path_pattern.length() - 2] == separator_char)))
             // only if the whole last segment is only the wildcard char
             {
                 wildcard = true;
@@ -72,5 +71,5 @@ namespace Logging
         static constexpr char wildcard_char = '*';
         static constexpr char separator_char = '.';
     };
-}
-#endif //DESKTOP_MANAGER_SOURCEPATHUTIL_HPP
+} // namespace Logging
+#endif // DESKTOP_MANAGER_SOURCEPATHUTIL_HPP

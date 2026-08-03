@@ -36,4 +36,4 @@ namespace Logging
 
         return true;
     }
-} // Logging
+} // namespace Logging

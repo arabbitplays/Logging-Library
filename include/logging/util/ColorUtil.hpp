@@ -53,6 +53,6 @@ namespace Logging
             return std::regex_replace(data, ansi_pattern, "");
         }
     };
-}
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_COLORUTIL_HPP
+#endif // DESKTOP_MANAGER_COLORUTIL_HPP

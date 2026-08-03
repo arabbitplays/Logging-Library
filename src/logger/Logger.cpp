@@ -3,7 +3,9 @@
 
 namespace Logging
 {
-    Logger::Logger(LogConfigurationHandle  config) : config(std::move(config)) { }
+    Logger::Logger(LogConfigurationHandle config) : config(std::move(config))
+    {
+    }
 
     void Logger::trace(const std::string& message)
     {
@@ -42,4 +44,4 @@ namespace Logging
             target->log(message);
         }
     }
-} // Logging
+} // namespace Logging
