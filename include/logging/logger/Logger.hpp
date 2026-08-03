@@ -7,7 +7,7 @@ namespace Logging
     class Logger
     {
     public:
-        explicit Logger(const LogConfigurationHandle& config);
+        explicit Logger(LogConfigurationHandle config);
         virtual ~Logger() = default;
 
         void trace(const std::string& message);
@@ -17,7 +17,8 @@ namespace Logging
         void error(const std::string& message);
         void critical(const std::string& message);
 
-        virtual void log(const std::string& message, const Severity severity) = 0;
+        virtual void log(const std::string& message, Severity severity) = 0;
+
     protected:
         void publish(const LogMessageHandle& message) const;
 
@@ -25,7 +26,7 @@ namespace Logging
         LogConfigurationHandle config;
     };
 
-    typedef std::shared_ptr<Logger> LoggerHandle;
-} // Logging
+    using LoggerHandle = std::shared_ptr<Logger>;
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_LOGGER_HPP
+#endif // DESKTOP_MANAGER_LOGGER_HPP

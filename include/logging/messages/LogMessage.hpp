@@ -1,18 +1,21 @@
 #ifndef DESKTOP_MANAGER_LOGMESSAGE_HPP
 #define DESKTOP_MANAGER_LOGMESSAGE_HPP
-#include <string>
-
 #include "Severity.hpp"
 #include "SourcePath.hpp"
 #include "Timestamp.hpp"
+
+#include <string>
+#include <utility>
 
 namespace Logging
 {
     struct LogMessage
     {
-        LogMessage(const SourcePath& path, const Severity severity, const std::string& message) :
-            timestamp(std::chrono::system_clock::now()), source_path(path),
-            severity(severity), message(message) {}
+        LogMessage(SourcePath path, const Severity severity, std::string message)
+            : timestamp(std::chrono::system_clock::now()), source_path(std::move(path)), severity(severity),
+              message(std::move(message))
+        {
+        }
 
         Timestamp timestamp;
         SourcePath source_path;
@@ -20,7 +23,7 @@ namespace Logging
         std::string message;
     };
 
-    typedef std::shared_ptr<LogMessage> LogMessageHandle;
-}
+    using LogMessageHandle = std::shared_ptr<LogMessage>;
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_LOGMESSAGE_HPP
+#endif // DESKTOP_MANAGER_LOGMESSAGE_HPP

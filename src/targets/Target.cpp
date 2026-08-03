@@ -32,4 +32,4 @@ namespace Logging
 
         return false;
     }
-}
+} // namespace Logging

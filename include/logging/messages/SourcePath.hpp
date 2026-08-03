@@ -9,10 +9,12 @@ namespace Logging
     struct SourcePath
     {
         explicit SourcePath(const std::vector<std::string>& segments, const bool is_wildcard = false)
-            : segments(segments), is_wildcard(is_wildcard) { }
-        std::vector<std::string> segments{};
+            : segments(segments), is_wildcard(is_wildcard)
+        {
+        }
+        std::vector<std::string> segments;
         bool is_wildcard;
     };
-}
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_SOURCEPATH_HPP
+#endif // DESKTOP_MANAGER_SOURCEPATH_HPP

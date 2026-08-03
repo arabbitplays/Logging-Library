@@ -1,10 +1,9 @@
 #ifndef DESKTOP_MANAGER_TARGET_HPP
 #define DESKTOP_MANAGER_TARGET_HPP
-#include <vector>
-
 #include <logging/messages/LogMessage.hpp>
 #include <logging/rules/FilterRule.hpp>
 #include <logging/rules/FilterRuleEvaluator.hpp>
+#include <vector>
 
 namespace Logging
 {
@@ -17,6 +16,7 @@ namespace Logging
         virtual ~Target() = default;
 
         void log(const LogMessageHandle& message);
+
     protected:
         bool appliesTo(const LogMessageHandle& message);
         virtual void apply(const LogMessageHandle& message) = 0;
@@ -25,10 +25,10 @@ namespace Logging
         void addRule(const FilterRuleHandle& rule);
 
         FilterRuleEvaluator rule_evaluator{};
-        std::vector<FilterRuleHandle> rules{};
+        std::vector<FilterRuleHandle> rules;
     };
 
-    typedef std::shared_ptr<Target> TargetHandle;
-}
+    using TargetHandle = std::shared_ptr<Target>;
+} // namespace Logging
 
-#endif //DESKTOP_MANAGER_TARGET_HPP
+#endif // DESKTOP_MANAGER_TARGET_HPP

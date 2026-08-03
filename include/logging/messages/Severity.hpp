@@ -15,36 +15,28 @@ namespace Logging
         CRITICAL,
     };
 
-    constexpr std::string_view severityNames[] = {
-        "TRACE",
-        "DEBUG",
-        "INFO",
-        "WARN",
-        "ERROR",
-        "CRITICAL"
-    };
+    constexpr std::string_view severity_names[] = {"TRACE", "DEBUG", "INFO", "WARN", "ERROR", "CRITICAL"};
 
-    inline const uint32_t MAX_SEVERITY_STRING_LENGTH = 8;
+    inline const uint32_t max_severity_string_length = 8;
 
     inline std::string_view severityToString(Severity severity)
     {
-        return severityNames[severity];
+        return severity_names[severity];
     }
-}
+} // namespace Logging
 
-template <>
-struct std::formatter<Logging::Severity>
+template <> struct std::formatter<Logging::Severity>
 {
-    constexpr auto parse(format_parse_context& ctx)
+    static constexpr auto parse(format_parse_context& ctx)
     {
         return ctx.begin();
     }
 
-    auto format(Logging::Severity s, format_context& ctx) const
+    static auto format(Logging::Severity s, format_context& ctx)
     {
         std::string_view severity_string = severityToString(s);
-        std::string padding = "";
-        for (uint32_t i = 0; i < Logging::MAX_SEVERITY_STRING_LENGTH - severity_string.size(); ++i)
+        std::string padding;
+        for (uint32_t i = 0; i < Logging::max_severity_string_length - severity_string.size(); ++i)
         {
             padding += " ";
         }
@@ -52,4 +44,4 @@ struct std::formatter<Logging::Severity>
     }
 };
 
-#endif //DESKTOP_MANAGER_SEVERITY_HPP
+#endif // DESKTOP_MANAGER_SEVERITY_HPP
