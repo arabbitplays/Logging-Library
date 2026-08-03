@@ -15,10 +15,10 @@ namespace Logging
             return targets;
         }
     private:
-        std::vector<TargetHandle> targets{};
+        std::vector<TargetHandle> targets;
     };
 
-    typedef std::shared_ptr<LogConfiguration> LogConfigurationHandle;
+    using LogConfigurationHandle = std::shared_ptr<LogConfiguration>;
 }
 
 #endif //DESKTOP_MANAGER_LOGCONFIGURATION_HPP

@@ -10,7 +10,7 @@ namespace Logging
         Timestamp(const DateTime& date_time) : date_time(date_time) {}
         DateTime date_time;
 
-        std::string format()
+        std::string format() const
         {
             auto secs = std::chrono::floor<std::chrono::seconds>(date_time);
             return std::format("{:%Y-%m-%d %H:%M:%S}", secs);

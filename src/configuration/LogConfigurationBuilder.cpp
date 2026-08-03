@@ -19,7 +19,7 @@ namespace Logging
         return *this;
     }
 
-    LogConfigurationBuilder& LogConfigurationBuilder::addRule(std::string path_pattern, Severity min_severity,
+    LogConfigurationBuilder& LogConfigurationBuilder::addRule(const std::string& path_pattern, Severity min_severity,
         const TargetHandle& target)
     {
         const auto rule = std::make_shared<FilterRule>(path_pattern, min_severity);

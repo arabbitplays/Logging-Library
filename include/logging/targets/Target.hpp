@@ -25,10 +25,10 @@ namespace Logging
         void addRule(const FilterRuleHandle& rule);
 
         FilterRuleEvaluator rule_evaluator{};
-        std::vector<FilterRuleHandle> rules{};
+        std::vector<FilterRuleHandle> rules;
     };
 
-    typedef std::shared_ptr<Target> TargetHandle;
+    using TargetHandle = std::shared_ptr<Target>;
 }
 
 #endif //DESKTOP_MANAGER_TARGET_HPP

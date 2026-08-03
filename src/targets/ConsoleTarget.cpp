@@ -4,13 +4,13 @@
 
 namespace Logging
 {
-    ConsoleTarget::ConsoleTarget() : Target() { }
+    ConsoleTarget::ConsoleTarget()  { }
 
     void ConsoleTarget::apply(const LogMessageHandle& message)
     {
         std::string stripped_message = ColorUtil::stripAnsiCodes(message->message);
         std::string output = std::format("{} {} {} - {}", message->timestamp.format(), message->severity, message->source_path.segments[0], stripped_message);
-        std::cout << colorize(output, message->severity) << std::endl;
+        std::cout << colorize(output, message->severity) << '\n';
     }
 
     std::string ConsoleTarget::colorize(const std::string& data, Severity severity) {

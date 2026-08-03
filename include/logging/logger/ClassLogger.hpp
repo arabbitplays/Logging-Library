@@ -10,7 +10,7 @@ namespace Logging
         ClassLogger(const LogConfigurationHandle& config, const std::string& class_id);
 
     protected:
-        void log(const std::string& raw_message, const Severity severity) override;
+        void log(const std::string& raw_message, Severity severity) override;
 
     private:
         SourcePath classpath;

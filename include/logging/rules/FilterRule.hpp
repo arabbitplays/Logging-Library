@@ -16,7 +16,7 @@ namespace Logging
         Severity min_severity;
     };
 
-    typedef std::shared_ptr<FilterRule> FilterRuleHandle;
+    using FilterRuleHandle = std::shared_ptr<FilterRule>;
 }
 
 #endif //DESKTOP_MANAGER_FILTERRULE_HPP

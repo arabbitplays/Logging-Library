@@ -12,12 +12,12 @@ namespace Logging
 
         LogConfigurationBuilder& addTarget(const TargetHandle& target);
         LogConfigurationBuilder& addRule(const FilterRuleHandle& rule, const TargetHandle& target);
-        LogConfigurationBuilder& addRule(std::string path_pattern, Severity min_severity, const TargetHandle& target);
+        LogConfigurationBuilder& addRule(const std::string& path_pattern, Severity min_severity, const TargetHandle& target);
 
         LogConfigurationHandle build();
 
     private:
-        LogConfigurationHandle config{};
+        LogConfigurationHandle config;
     };
 } // Logging
 

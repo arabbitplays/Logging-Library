@@ -1,8 +1,9 @@
 #include <logging/logger/Logger.hpp>
+#include <utility>
 
 namespace Logging
 {
-    Logger::Logger(const LogConfigurationHandle& config) : config(config) { }
+    Logger::Logger(LogConfigurationHandle  config) : config(std::move(config)) { }
 
     void Logger::trace(const std::string& message)
     {
