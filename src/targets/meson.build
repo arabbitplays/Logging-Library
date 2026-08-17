@@ -3,5 +3,6 @@
 
 src += files(
   'ConsoleTarget.cpp',
+  'InMemoryTarget.cpp',
   'Target.cpp',
 )
