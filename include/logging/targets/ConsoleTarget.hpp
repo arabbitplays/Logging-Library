@@ -13,6 +13,8 @@ namespace Logging
 
     protected:
         void apply(const LogMessageHandle& message) override;
+
+    private:
         std::string colorize(const std::string& data, Severity severity);
         Color getColorForSeverity(const Severity severity);
     };
